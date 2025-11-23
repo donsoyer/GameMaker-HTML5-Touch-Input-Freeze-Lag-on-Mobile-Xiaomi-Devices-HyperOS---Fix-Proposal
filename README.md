@@ -12,16 +12,18 @@ The Root Cause & Fix:
 The issue is caused by the browser defaulting to passive: true listeners, waiting for the OS to check for gestures.
 The ONLY working solution is to manually inject a JavaScript event listener with the { passive: false } option explicitly set.
 
-Code:
+```javascript
 // This MUST be added to the index.html template to fix it
-window.addEventListener('load', function() { 
-  var canvas = document.getElementById("canvas"); 
-  if (canvas) { 
-    var preventDefaultScroll = function(e) { 
-      e.preventDefault(); 
-    }; 
-    // { passive: false } is required to override device’s default browser behavior canvas.addEventListener('touchstart', preventDefaultScroll, { passive: false }); canvas.addEventListener('touchmove', preventDefaultScroll, { passive: false });
-  	canvas.addEventListener('touchend', preventDefaultScroll, { passive: false });
+window.addEventListener('load', function() {
+  var canvas = document.getElementById("canvas");
+  if (canvas) {
+    var preventDefaultScroll = function(e) {
+      e.preventDefault();
+    };
+    // { passive: false } is required to override device’s default browser behavior
+    canvas.addEventListener('touchstart', preventDefaultScroll, { passive: false });
+    canvas.addEventListener('touchmove', preventDefaultScroll, { passive: false });
+    canvas.addEventListener('touchend', preventDefaultScroll, { passive: false });
   }
 });
 
