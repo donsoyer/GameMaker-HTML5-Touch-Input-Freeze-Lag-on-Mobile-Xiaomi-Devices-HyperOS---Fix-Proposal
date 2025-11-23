@@ -26,6 +26,7 @@ window.addEventListener('load', function() {
     canvas.addEventListener('touchend', preventDefaultScroll, { passive: false });
   }
 });
+```
 
 Attachments & Implementation Guide:
 I have attached two modified template files that resolve the issue:
