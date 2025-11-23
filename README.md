@@ -39,4 +39,6 @@ Version Compatibility:
 lease note that these modified HTML template files have been tested and verified to work with the latest GameMaker Runtime version: 2024.14.1.253.
 Universal Compatibility:
 However, the JavaScript fix code provided above is universal. It can be manually injected into the index.html template of any GameMaker Runtime version to resolve the issue, regardless of the specific Runtime build.
+
+https://github.com/YoYoGames/GameMaker-Bugs/issues/12977
  
